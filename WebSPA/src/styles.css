@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #eeeeee;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gainsboro;
+}
+h3 {
+    font-size: 1.3em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gainsboro;
+}
+
+
+.border-bottom {
+    border-bottom: 1px solid gainsboro;
+}
+
+.table .thead-gray th {
+    background-color: #dedede;
+}
+
+.btn-xs {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    padding-bottom: 0;
+    padding-top: 0;
+    font-size: 0.8em;
+}
+
+form {
+    margin-bottom: 1em;
+}
+
+.alert-sm {
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+.w-5rem {
+    width: 5rem;
+}

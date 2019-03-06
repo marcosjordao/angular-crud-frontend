@@ -1,0 +1,40 @@
+<h2>
+    <span class='fa fa-angle-right fa-xs'></span>
+    Cadastro de Pessoa
+    <i *ngIf="!person" class="fas fa-spin fa-spinner"></i>
+</h2>
+
+<div *ngIf="person">
+    <form #personForm="ngForm">
+
+        <!-- Nome Completo -->
+        <div class="form-group">
+            <label for="name">Nome completo:</label>
+            <input class="form-control" [(ngModel)]="person.name" id="name" name="name" required
+                minlength="3" maxlength="100" />
+        </div>
+
+        <!-- E-Mail -->
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input class="form-control" [ngModel]="person.email.address" id="email" name="email" minlength="3"
+                maxlength="100" (input)="setEmail($event.target.value)" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+        </div>
+        {{person.email | json}}
+
+        <!-- E-Mail -->
+        <div class="form-group">
+            <label for="phone">Telefone:</label>
+            <input class="form-control" [(ngModel)]="person.phone" id="phone" name="phone" minlength="4"
+                maxlength="15" />
+        </div>
+
+        <button type="submit" [disabled]="!personForm.form.valid || saving" class="btn btn-primary w-5rem"
+            (click)="save()">
+            <span *ngIf="!saving">Salvar</span>
+            <span *ngIf="saving" class="fas fa-spinner fa-spin"></span>
+        </button>
+        &nbsp;
+        <button class="btn btn-light" (click)="goBack()">Cancelar</button>
+    </form>
+</div>

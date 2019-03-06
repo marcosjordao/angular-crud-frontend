@@ -1,0 +1,36 @@
+<h2>
+    <span class='fa fa-angle-right fa-xs'></span>
+    Pessoas
+    <i *ngIf="!persons" class="fas fa-spin fa-spinner"></i>
+    &nbsp;
+    <a *ngIf="persons" routerLink="/person/new" class="btn btn-info btn-sm">
+        <i class="fas fa-plus fa-xs"></i>
+        Inserir nova
+    </a>
+</h2>
+
+<table class='table table-hover' *ngIf="persons">
+    <thead class="thead-gray">
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody class="table-striped">
+        <tr *ngFor="let person of persons">
+            <td>{{ person.name }}</td>
+            <td>{{ person.email?.address }}</td>
+            <td>{{ person.phone }}</td>
+            <td>
+                <a routerLink="/person/{{person.id}}" class="btn btn-info btn-sm w-5rem">alterar</a>
+                &nbsp;
+                <button class="btn btn-danger btn-sm w-5rem" title="excluir" (click)="delete(person)"
+                    [disabled]="deleting === person">
+                    <span *ngIf="deleting !== person">excluir</span>
+                    <span *ngIf="deleting === person" class="fas fa-spinner fa-spin"></span>
+                </button> </td>
+        </tr>
+    </tbody>
+</table>
